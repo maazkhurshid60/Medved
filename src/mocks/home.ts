@@ -15,11 +15,11 @@ export const heroMedia = {
 
 export const heroShowcase = {
   background:
-    "https://readdy.ai/api/search-image?query=Wide%20cinematic%20architectural%20photograph%20of%20a%20sleek%20modern%20luxury%20villa%20with%20expansive%20floor-to-ceiling%20glass%20walls%2C%20a%20still%20reflecting%20pool%20in%20front%2C%20surrounded%20by%20manicured%20olive%20trees%20and%20sculpted%20Mediterranean%20landscaping%2C%20soft%20bright%20California%20daylight%2C%20pale%20cool%20sky%2C%20minimal%20clean%20composition%2C%20high-end%20real%20estate%20editorial%20photography%2C%20sophisticated%20neutral%20palette%2C%20crisp%20detail%2C%20airy%20premium%20atmosphere&width=1920&height=1080&seq=medved-hero-bg-02&orientation=landscape",
+    `${import.meta.env.BASE_URL}images/hero-background.jpg`,
   primary:
-    "https://readdy.ai/api/search-image?query=Cinematic%20blue-hour%20photograph%20of%20a%20striking%20modern%20luxury%20hillside%20residence%20in%20the%20Hollywood%20Hills%20with%20floor-to-ceiling%20glass%20walls%20glowing%20warm%20amber%20from%20within%20beneath%20a%20deep%20teal%20twilight%20sky%20dramatic%20cantilevered%20architecture%20infinity%20pool%20reflecting%20the%20glowing%20house%20manicured%20landscaping%20moody%20premium%20architectural%20photography%20crisp%20detail%20elegant%20atmosphere&width=1200&height=1500&seq=medved-hero-dusk-01&orientation=portrait",
+    `${import.meta.env.BASE_URL}images/hero-primary.jpg`,
   inset:
-    "https://readdy.ai/api/search-image?query=Elegant%20architectural%20interior%20detail%20photograph%20of%20a%20luxury%20home%20at%20dusk%20warm%20brass%20pendant%20lights%20above%20a%20stone%20kitchen%20island%20floor-to-ceiling%20glass%20framing%20a%20dark%20teal%20evening%20skyline%20refined%20minimal%20styling%20soft%20cinematic%20lighting%20premium%20real%20estate%20editorial%20photography%20muted%20harmonious%20palette&width=800&height=1000&seq=medved-hero-inset-01&orientation=portrait",
+    `${import.meta.env.BASE_URL}images/hero-inset.jpg`,
 };
 
 export const logos = {
