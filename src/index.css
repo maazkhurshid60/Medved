@@ -1,0 +1,567 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Onest:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Background — cool, clean near-white (no warm/yellow cast) */
+  --background-50: 0.99 0.002 250;
+  --background-100: 0.972 0.004 250;
+  --background-200: 0.944 0.006 250;
+  --background-300: 0.902 0.008 250;
+  --background-400: 0.842 0.01 250;
+  --background-500: 0.772 0.012 250;
+  --background-600: 0.678 0.013 250;
+  --background-700: 0.558 0.013 250;
+  --background-800: 0.438 0.012 250;
+  --background-900: 0.328 0.011 250;
+  --background-950: 0.218 0.01 250;
+
+  /* Primary — deep teal-green: the signature brand colour (buttons, key moments) */
+  --primary-50: 0.966 0.014 195;
+  --primary-100: 0.922 0.028 194;
+  --primary-200: 0.85 0.046 193;
+  --primary-300: 0.748 0.064 192;
+  --primary-400: 0.628 0.077 191;
+  --primary-500: 0.44 0.072 190;
+  --primary-600: 0.375 0.062 190;
+  --primary-700: 0.318 0.052 190;
+  --primary-800: 0.262 0.043 190;
+  --primary-900: 0.214 0.035 190;
+  --primary-950: 0.164 0.028 190;
+
+  /* Accent — muted clay / terracotta: warm counterpoint, used sparingly */
+  --accent-50: 0.966 0.014 42;
+  --accent-100: 0.926 0.03 42;
+  --accent-200: 0.866 0.05 41;
+  --accent-300: 0.792 0.068 40;
+  --accent-400: 0.702 0.082 40;
+  --accent-500: 0.6 0.086 40;
+  --accent-600: 0.516 0.075 40;
+  --accent-700: 0.43 0.063 40;
+  --accent-800: 0.346 0.05 40;
+  --accent-900: 0.272 0.04 40;
+  --accent-950: 0.192 0.03 40;
+
+  /* Secondary — cool slate: supporting UI, filters, metadata */
+  --secondary-50: 0.972 0.003 250;
+  --secondary-100: 0.942 0.005 250;
+  --secondary-200: 0.896 0.007 250;
+  --secondary-300: 0.83 0.009 250;
+  --secondary-400: 0.736 0.012 252;
+  --secondary-500: 0.636 0.014 252;
+  --secondary-600: 0.542 0.014 252;
+  --secondary-700: 0.452 0.013 252;
+  --secondary-800: 0.362 0.011 252;
+  --secondary-900: 0.282 0.01 252;
+  --secondary-950: 0.194 0.008 252;
+
+  /* Foreground — near-black cool ink */
+  --foreground-50: 0.966 0.002 250;
+  --foreground-100: 0.926 0.003 250;
+  --foreground-200: 0.862 0.004 250;
+  --foreground-300: 0.756 0.006 250;
+  --foreground-400: 0.626 0.008 250;
+  --foreground-500: 0.522 0.009 250;
+  --foreground-600: 0.422 0.01 250;
+  --foreground-700: 0.332 0.011 250;
+  --foreground-800: 0.252 0.012 250;
+  --foreground-900: 0.186 0.012 250;
+  --foreground-950: 0.15 0.014 250;
+
+  --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Onest', ui-sans-serif, system-ui, sans-serif;
+  --font-label: 'Onest', ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+  --background-50: 0.2 0.012 250;
+  --background-100: 0.24 0.013 250;
+  --background-200: 0.29 0.014 250;
+  --background-300: 0.35 0.015 250;
+  --background-400: 0.45 0.016 251;
+  --background-500: 0.56 0.018 251;
+  --background-600: 0.67 0.02 252;
+  --background-700: 0.77 0.022 252;
+  --background-800: 0.86 0.018 252;
+  --background-900: 0.93 0.012 252;
+  --background-950: 0.97 0.006 252;
+
+  --foreground-50: 0.2 0.012 250;
+  --foreground-100: 0.25 0.013 250;
+  --foreground-200: 0.35 0.014 251;
+  --foreground-300: 0.47 0.015 251;
+  --foreground-400: 0.6 0.016 251;
+  --foreground-500: 0.72 0.016 252;
+  --foreground-600: 0.82 0.014 252;
+  --foreground-700: 0.88 0.012 252;
+  --foreground-800: 0.92 0.01 252;
+  --foreground-900: 0.955 0.008 252;
+  --foreground-950: 0.985 0.004 252;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: oklch(var(--background-50));
+    color: oklch(var(--foreground-950));
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    font-optical-sizing: auto;
+  }
+
+  ::selection {
+    background-color: oklch(var(--primary-300));
+    color: oklch(var(--foreground-950));
+  }
+}
+
+@layer components {
+  .font-label {
+    font-family: var(--font-label);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* Button label — sentence case, refined tracking */
+  .btn-label {
+    font-family: var(--font-label);
+    font-weight: 500;
+    font-size: 0.8rem;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    text-transform: none;
+  }
+
+  /* Anti-spam honeypot — visually hidden but reachable for layout integrity */
+  .form-field-alt {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* ---------------------------------------------------------------------
+     Surfaces. Crisp paper panels with hairline rules and flat fills — no
+     frosted glass, no blur. Declared inside @layer components so Tailwind
+     utilities (e.g. hover:bg-*) still override them cleanly.
+  --------------------------------------------------------------------- */
+  .glass {
+    background-color: oklch(var(--background-50));
+    border: 1px solid oklch(var(--foreground-950) / 0.08);
+  }
+
+  .glass-strong {
+    background-color: oklch(var(--background-50));
+    border: 1px solid oklch(var(--foreground-950) / 0.1);
+  }
+
+  .glass-dark {
+    background-color: oklch(var(--foreground-950) / 0.72);
+    border: 1px solid oklch(var(--background-50) / 0.14);
+  }
+
+  .glass-dark-strong {
+    background-color: oklch(var(--foreground-950) / 0.9);
+    border: 1px solid oklch(var(--background-50) / 0.16);
+  }
+
+  /* Editorial hairline rules */
+  .rule {
+    height: 1px;
+    background-color: oklch(var(--foreground-950) / 0.12);
+  }
+
+  .rule-light {
+    height: 1px;
+    background-color: oklch(var(--background-50) / 0.2);
+  }
+
+  /* Ambient backdrop — a faint square grid that gives the canvas depth */
+  .bg-grid {
+    background-image:
+      linear-gradient(oklch(var(--foreground-950) / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(var(--foreground-950) / 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  /* The covering section of a scroll-overlap moment — a card with rounded
+     shoulders that rises up and over the pinned stage behind it. */
+  .stack-top {
+    position: relative;
+    z-index: 20;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+    border-top: 1px solid oklch(var(--foreground-950) / 0.08);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Animated headline gradient — sweeps brand teal, clay and slate across
+     the type. Deep tones keep it legible while the colour drifts. */
+  .text-gradient-animate {
+    background-image: linear-gradient(
+      100deg,
+      oklch(var(--primary-600)) 0%,
+      oklch(var(--accent-600)) 22%,
+      oklch(var(--primary-500)) 45%,
+      oklch(var(--secondary-700)) 68%,
+      oklch(var(--primary-700)) 88%,
+      oklch(var(--primary-600)) 100%
+    );
+    background-size: 280% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-pan 9s ease-in-out infinite;
+  }
+
+  /* Light twin of the animated headline gradient — identical sweep, but
+     tuned for dark surfaces so the type stays bright and legible. */
+  .text-gradient-animate-light {
+    background-image: linear-gradient(
+      100deg,
+      oklch(var(--background-50)) 0%,
+      oklch(var(--primary-200)) 20%,
+      oklch(var(--accent-200)) 40%,
+      oklch(var(--background-50)) 58%,
+      oklch(var(--secondary-200)) 78%,
+      oklch(var(--background-50)) 100%
+    );
+    background-size: 280% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-pan 9s ease-in-out infinite;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Motion
+--------------------------------------------------------------------------- */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 46s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes gradient-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.16) translate3d(-1%, -1.5%, 0);
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 26s ease-in-out infinite alternate;
+}
+
+@keyframes blob-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob-drift 20s ease-in-out infinite;
+}
+
+.animate-blob-slow {
+  animation: blob-drift 30s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-y 9s ease-in-out infinite;
+}
+
+/* Animated link underline — grows in from the left, exits to the right */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* ---------------------------------------------------------------------------
+   Buttons — pill-shaped, with a sweeping fill, a glossy shine streak,
+   and a rolling twin label on hover.
+--------------------------------------------------------------------------- */
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 9999px;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.55s cubic-bezier(0.19, 1, 0.22, 1),
+    color 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    border-color 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    background-color 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.975);
+  transition-duration: 0.16s;
+}
+
+.btn-fill::before,
+.btn-fill-light::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: translateX(-101%);
+  will-change: transform;
+  transition: transform 0.72s cubic-bezier(0.19, 1, 0.22, 1);
+  background-color: oklch(var(--primary-600));
+}
+
+.btn-fill:hover::before,
+.btn-fill-light:hover::before {
+  transform: translateX(0);
+}
+
+.btn-fill:hover,
+.btn-fill-light:hover {
+  color: oklch(var(--background-50));
+}
+
+/* Shining sweep — a soft glossy light streak glides across the button on hover */
+.btn::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  bottom: -30%;
+  left: 0;
+  width: 45%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    oklch(var(--background-50) / 0.22) 38%,
+    oklch(var(--background-50) / 0.62) 50%,
+    oklch(var(--background-50) / 0.22) 62%,
+    transparent 100%
+  );
+  transform: translateX(-190%) skewX(-16deg);
+  will-change: transform, opacity;
+}
+
+.btn:hover::after {
+  animation: btn-shine 1.9s cubic-bezier(0.33, 1, 0.68, 1) infinite;
+}
+
+@keyframes btn-shine {
+  0% {
+    transform: translateX(-190%) skewX(-16deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  55% {
+    transform: translateX(330%) skewX(-16deg);
+    opacity: 1;
+  }
+  64% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(330%) skewX(-16deg);
+    opacity: 0;
+  }
+}
+
+/* Rolling label — the visible label slides up and out while its twin rises in */
+.btn-roll {
+  position: relative;
+  display: inline-block;
+  height: 1.2em;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.btn-roll-track {
+  display: block;
+  will-change: transform;
+  transition: transform 0.62s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-roll-item {
+  display: block;
+  height: 1.2em;
+  line-height: 1.2;
+}
+
+.btn:hover .btn-roll-track {
+  transform: translateY(-50%);
+}
+
+.btn-arrow {
+  transition: transform 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+.btn:disabled,
+.btn[disabled] {
+  transform: none;
+}
+
+.btn:disabled::before,
+.btn:disabled:hover::before {
+  transform: translateX(-101%);
+}
+
+.btn:disabled .btn-roll-track,
+.btn:disabled:hover .btn-roll-track {
+  transform: translateY(0);
+}
+
+.btn:disabled .btn-arrow,
+.btn:disabled:hover .btn-arrow {
+  transform: none;
+}
+
+.btn:disabled::after,
+.btn:disabled:hover::after {
+  animation: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-ken-burns,
+  .animate-fade-up,
+  .text-gradient-animate,
+  .text-gradient-animate-light,
+  .animate-blob,
+  .animate-blob-slow,
+  .animate-float,
+  .animate-float-slow,
+  .btn::after {
+    animation: none !important;
+  }
+
+  .link-underline::after,
+  .btn,
+  .btn::before,
+  .btn::after,
+  .btn-arrow,
+  .btn-roll-track {
+    transition: none !important;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  .btn:hover .btn-roll-track {
+    transform: none;
+  }
+}
