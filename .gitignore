@@ -1,0 +1,7 @@
+node_modules
+out
+dist
+auto-imports.d.ts
+*.log
+.env
+.env.*
